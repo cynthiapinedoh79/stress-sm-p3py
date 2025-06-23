@@ -37,33 +37,96 @@ def ensure_headers(worksheet):
 
     return worksheet.row_values(1)
 
-
-# ------------------------------------------
-# 3. Run Survey and Save Responses to Sheet
-# ------------------------------------------
+# --------------------------------------------------------
+# 4. Run Survey, Validate Data and Save Responses to Sheet
+# --------------------------------------------------------
 
 def run_survey():
     """
-    Run the digital stress survey and save responses to Google Sheet.
+    Run the digital stress survey, validate input one-by-one giving feedback if has an error, and save to Google Sheet.
     """
 
-    print("--- Digital Stress Survey ---\n")
-    age = input("Your age: \n").strip()
-    screen_time = input("Daily screen time? (1-2 / 3-5 / 6+): \n").strip().lower()
-    networks = input("Active social networks? (0 / 1-2 / 3+): \n").strip().lower()
-    remote = input("Work/study from home? (yes / partly / no): \n").strip().lower()
-    fatigue = input("Do you feel digital fatigue? (no / sometimes / yes): \n").strip().lower()
-    stress = input("Stress level at end of day? (low / medium / high): \n").strip().lower()
-    print("Thank you for completing the survey!")
+    print("\n--- Digital Stress Survey ---\n")
 
-    # Append to Google Sheet
+    # Validate age
+    while True:
+        age_input = input("Your age (e.g., 25): \n").strip()
+        try:
+            age = int(age_input)
+            if age <= 0:
+                print(" Age must be a positive number. \n")
+            else:
+                break
+        except ValueError as e:
+            print(f" Please enter a valid number for age. \n")
+            print(f"(Details: {e}) \n")
+
+    # Validate screen time
+    while True:
+        screen_input = input("How many hours of screen time per day? (e.g., 2): \n").strip()
+        try:
+            screen_time = int(screen_input)
+            if screen_time < 0:
+                print(" Screen time cannot be negative. \n")
+            else:
+                break
+        except ValueError as e:
+            print(" Please enter a valid number for screen time. \n")
+            print(f"(Details: {e}) \n")
+
+    # Validate number of networks
+    while True:
+        network_input = input("How many social networks do you actively use? (e.g., 3): \n").strip()
+        try:
+            networks = int(network_input)
+            if networks < 0:
+                print(" Number of networks must be zero or more. \n")
+            else:
+                break
+        except ValueError as e:
+            print(" Please enter a valid number for social networks. \n")
+            print(f"(Details: {e}) \n")
+
+    # Validate remote work input
+    remote_options = ["yes", "partly", "no"]
+    while True:
+        remote = input("Work/study from home? (yes / partly / no): \n").strip().lower()
+        if remote in remote_options:
+            break
+        else:
+            print(" Please enter: yes, partly, or no. \n")
+
+    # Validate digital fatigue
+    fatigue_options = ["no", "sometimes", "yes"]
+    while True:
+        fatigue = input("Do you feel digital fatigue? (no / sometimes / yes): \n").strip().lower()
+        if fatigue in fatigue_options:
+            break
+        else:
+            print(" Please enter: no, sometimes, or yes. \n")
+
+    # Validate stress level
+    stress_options = ["low", "medium", "high"]
+    while True:
+        stress = input("Stress level at end of day? (low / medium / high): \n").strip().lower()
+        if stress in stress_options:
+            break
+        else:
+            print(" Please enter: low, medium, or high. \n")
+
+    # Final data to append
+    final_data = [age, screen_time, networks, remote, fatigue, stress]
+
+    # Append to worksheet
     worksheet = SHEET.worksheet("responses")
-    worksheet.append_row([age, screen_time, networks, remote, fatigue, stress])
-    print(f"{worksheet} worksheet updated successfully.")
+    worksheet.append_row(final_data)
+
+    print("\n Thank you for completing the survey! \n")
+
 
 
 # ---------------------------
-# 3. Categorize age
+# 5. Categorize age
 # ---------------------------
 def age_group(age):
     """
@@ -88,7 +151,7 @@ def age_group(age):
 
 
 # ------------------------------------------
-# 4. Execute
+# 6. Execute
 # ------------------------------------------
 worksheet = SHEET.worksheet("responses")
 ensure_headers(worksheet)
