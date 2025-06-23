@@ -33,12 +33,79 @@ def ensure_headers(worksheet):
 
     # Check if current headers match expected ones
     if current_headers != headers:
+        worksheet.clear()
         worksheet.insert_row(headers, index=1)
 
     return worksheet.row_values(1)
 
 # --------------------------------------------------------
-# 4. Run Survey, Validate Data and Save Responses to Sheet
+# 3. Get recommendation
+# --------------------------------------------------------
+"""
+Generate a recommendation based on stress, fatigue, and screen time.
+"""
+def get_recommendation(stress, fatigue, screen_time):
+    if stress == "high" or fatigue == "yes" or screen_time > 5:
+        return "Try reducing screen time and take regular digital breaks."
+    elif stress == "medium":
+        return "Consider mindfulness or short walks between sessions."
+    else:
+        return "You're doing great! Keep your habits healthy."
+
+# --------------------------------------------------------
+# 4. Network detailed usage
+# --------------------------------------------------------
+def network_usage():
+    """
+    Collect detailed usage hours for specific social networks.
+    Returns a list of hours [Facebook, Instagram, TikTok, Games]
+    """
+    networks = ["Facebook", "Instagram", "TikTok", "Games"]
+    usage_hours = []
+
+    for network in networks:
+        while True:
+            hours_input = input(f"How many hours per day do you spend on {network}? (e.g., 1): \n").strip()
+            try:
+                hours = int(hours_input)
+                if hours < 0:
+                    print(" Hours cannot be negative.\n")
+                else:
+                    usage_hours.append(hours)
+                    break
+            except ValueError as e:
+                print(" Please enter a valid number for hours.")
+                print(f"(Details: {e})")
+
+    return usage_hours
+
+# ---------------------------
+# 5. Categorize age
+# ---------------------------
+def age_group(age):
+    """
+    Categorize age into groups.
+    """
+
+    try:
+        age = int(age)
+        if age < 18:
+            return "<18"
+        elif 18 <= age <= 25:
+            return "18–25"
+        elif 26 <= age <= 35:
+            return "26–35"
+        elif 36 <= age <= 50:
+            return "36–50"
+        else:
+            return "51+"
+    except ValueError as e:
+        print(f"Invalid age: {e}, please enter a number. \n")
+        return False
+    
+
+# --------------------------------------------------------
+# 6. Main survey
 # --------------------------------------------------------
 
 def run_survey():
@@ -58,7 +125,7 @@ def run_survey():
             else:
                 break
         except ValueError as e:
-            print(f" Please enter a valid number for age. \n")
+            print(f"Invalid age. Enter a number. \n")
             print(f"(Details: {e}) \n")
 
     # Validate screen time
@@ -71,7 +138,7 @@ def run_survey():
             else:
                 break
         except ValueError as e:
-            print(" Please enter a valid number for screen time. \n")
+            print(" Invalid screen time. Enter a number. \n")
             print(f"(Details: {e}) \n")
 
     # Validate number of networks
@@ -80,7 +147,7 @@ def run_survey():
         try:
             networks = int(network_input)
             if networks < 0:
-                print(" Number of networks must be zero or more. \n")
+                print("Must be zero or more. \n")
             else:
                 break
         except ValueError as e:
@@ -114,44 +181,26 @@ def run_survey():
         else:
             print(" Please enter: low, medium, or high. \n")
 
-    # Final data to append
-    final_data = [age, screen_time, networks, remote, fatigue, stress]
+    # Collect network usage
+    print("\n Tell us about your usage of specific apps...\n")
+    network_hours = network_usage()
+
+    # Generate recommendation
+    recommendation = get_recommendation(stress, fatigue, screen_time)
+    print(f"\n Recommendation: {recommendation}\n")
+
+    # Combine all data
+    row_data = [age, screen_time, networks, remote, fatigue, stress] + network_hours + [recommendation]
 
     # Append to worksheet
     worksheet = SHEET.worksheet("responses")
-    worksheet.append_row(final_data)
+    worksheet.append_row(row_data)
 
     print("\n Thank you for completing the survey! \n")
 
 
-
-# ---------------------------
-# 5. Categorize age
-# ---------------------------
-def age_group(age):
-    """
-    Categorize age into groups.
-    """
-
-    try:
-        age = int(age)
-        if age < 18:
-            return "<18"
-        elif 18 <= age <= 25:
-            return "18–25"
-        elif 26 <= age <= 35:
-            return "26–35"
-        elif 36 <= age <= 50:
-            return "36–50"
-        else:
-            return "51+"
-    except ValueError as e:
-        print(f"Invalid age: {e}, please enter a number. \n")
-        return False
-
-
 # ------------------------------------------
-# 6. Execute
+# 7. Execute
 # ------------------------------------------
 worksheet = SHEET.worksheet("responses")
 ensure_headers(worksheet)
