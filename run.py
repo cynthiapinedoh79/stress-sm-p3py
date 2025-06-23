@@ -19,6 +19,11 @@ SHEET = GSPREAD_CLIENT.open("stress-sm-p3py")
 # 2. Ensure headers exist
 # ------------------------------------------
 def ensure_headers(worksheet):
+    """
+    Ensure the worksheet has the correct headers.
+    If not, insert them at the top.
+    """
+
     current_headers = worksheet.row_values(1)
 
     headers = [
@@ -36,7 +41,12 @@ def ensure_headers(worksheet):
 # ------------------------------------------
 # 3. Run Survey and Save Responses to Sheet
 # ------------------------------------------
+
 def run_survey():
+    """
+    Run the digital stress survey and save responses to Google Sheet.
+    """
+
     print("--- Digital Stress Survey ---\n")
     age = input("Your age: \n").strip()
     screen_time = input("Daily screen time? (1-2 / 3-5 / 6+): \n").strip().lower()
@@ -51,8 +61,34 @@ def run_survey():
     worksheet.append_row([age, screen_time, networks, remote, fatigue, stress])
     print(f"{worksheet} worksheet updated successfully.")
 
+
+# ---------------------------
+# 3. Categorize age
+# ---------------------------
+def age_group(age):
+    """
+    Categorize age into groups.
+    """
+
+    try:
+        age = int(age)
+        if age < 18:
+            return "<18"
+        elif 18 <= age <= 25:
+            return "18–25"
+        elif 26 <= age <= 35:
+            return "26–35"
+        elif 36 <= age <= 50:
+            return "36–50"
+        else:
+            return "51+"
+    except ValueError as e:
+        print(f"Invalid age: {e}, please enter a number. \n")
+        return False
+
+
 # ------------------------------------------
-# 3. Execute
+# 4. Execute
 # ------------------------------------------
 worksheet = SHEET.worksheet("responses")
 ensure_headers(worksheet)
