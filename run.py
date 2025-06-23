@@ -55,15 +55,18 @@ def get_recommendation(stress, fatigue, screen_time):
 # --------------------------------------------------------
 # 4. Network detailed usage
 # --------------------------------------------------------
-def network_usage():
+def network_usage(network_count):
     """
-    Collect detailed usage hours for specific social networks.
-    Returns a list of hours [Facebook, Instagram, TikTok, Games]
+    Collect detailed usage hours for specific social networks if network_count > 0.
+    Returns a list of hours [Facebook, Instagram, TikTok, Games] or [0, 0, 0, 0]
     """
-    networks = ["Facebook", "Instagram", "TikTok", "Games"]
-    usage_hours = []
+    all_networks = ["Facebook", "Instagram", "TikTok", "Games"]
 
-    for network in networks:
+    if network_count == 0:
+        return [0, 0, 0, 0]
+
+    usage_hours = []
+    for network in all_networks:
         while True:
             hours_input = input(f"How many hours per day do you spend on {network}? (e.g., 1): \n").strip()
             try:
@@ -76,8 +79,8 @@ def network_usage():
             except ValueError as e:
                 print(" Please enter a valid number for hours.")
                 print(f"(Details: {e})")
-
     return usage_hours
+
 
 # ---------------------------
 # 5. Categorize age
@@ -183,7 +186,8 @@ def run_survey():
 
     # Collect network usage
     print("\n Tell us about your usage of specific apps...\n")
-    network_hours = network_usage()
+    network_hours = network_usage(networks)
+
 
     # Generate recommendation
     recommendation = get_recommendation(stress, fatigue, screen_time)
