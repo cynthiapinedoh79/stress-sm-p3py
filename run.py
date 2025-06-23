@@ -28,7 +28,7 @@ def ensure_headers(worksheet):
 
     headers = [
         "Age", "Screen Time", "Social Networks", "Remote Work", "Digital Fatigue", "Stress Level",
-        "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Recommendation"
+        "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Personal Recommendation", "Group Recommendation"
     ]
 
     # Check if current headers match expected ones
@@ -39,18 +39,33 @@ def ensure_headers(worksheet):
     return worksheet.row_values(1)
 
 # --------------------------------------------------------
-# 3. Get recommendation
+# 4. Personal recommendation
 # --------------------------------------------------------
 """
-Generate a recommendation based on stress, fatigue, and screen time.
+Generate a personal recommendation based on hours of screen time.
 """
-def get_recommendation(stress, fatigue, screen_time):
-    if stress == "high" or fatigue == "yes" or screen_time > 5:
-        return "Try reducing screen time and take regular digital breaks."
-    elif stress == "medium":
-        return "Consider mindfulness or short walks between sessions."
+def personal_recommendation(stress, fatigue, screen_time):
+    if screen_time <= 3 or stress=="low" or fatigue=="no":
+        return "Your usage is low. Great balance!"
+    elif screen_time <=6 or fatigue == "sometimes":
+        return "Moderate usage. Try to reduce screen time and take screen breaks every hour."
     else:
-        return "You're doing great! Keep your habits healthy."
+        return "High usage. Consider reducing screen time and doing physical or outdooor activities"
+    
+
+# --------------------------------------------------------
+# 5. Group recommendation
+# --------------------------------------------------------
+"""
+Generate a group recommendation based on stress, fatigue, and screen time.
+"""
+def group_recommendation(stress, fatigue, screen_time):
+    if stress == "high" or fatigue == "yes" or screen_time > 5:
+        return "Group stress is high. Recommended digital detox strategies and emotional wellnes support."
+    elif stress == "medium":
+        return "Group stress is moderate. Encourage screen breaks and physical social time."
+    else:
+        return "Group stress is low. Keep up the healthy tech habits!."
 
 # --------------------------------------------------------
 # 4. Network detailed usage
@@ -190,11 +205,14 @@ def run_survey():
 
 
     # Generate recommendation
-    recommendation = get_recommendation(stress, fatigue, screen_time)
-    print(f"\n Recommendation: {recommendation}\n")
+    p_recommendation = personal_recommendation(stress, fatigue, screen_time)
+    g_recommendation = group_recommendation(stress, fatigue, screen_time)
+
+    print(f"\n Personal Recommendation: {p_recommendation} \n")
+    print(f"\n Group Recommendation: {g_recommendation} \n")
 
     # Combine all data
-    row_data = [age, screen_time, networks, remote, fatigue, stress] + network_hours + [recommendation]
+    row_data = [age, screen_time, networks, remote, fatigue, stress] + network_hours + [p_recommendation, g_recommendation]
 
     # Append to worksheet
     worksheet = SHEET.worksheet("responses")
