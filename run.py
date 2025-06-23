@@ -16,7 +16,28 @@ GSPREAD_CLIENT = gspread.authorize(CREDS)
 SHEET = GSPREAD_CLIENT.open("stress-sm-p3py")
 
 # ------------------------------------------
-# 2. Run Survey and Save Responses to Sheet
+# 2. Ensure headers exist
+# ------------------------------------------
+def ensure_headers(worksheet):
+    current_headers = worksheet.row_values(1)
+
+    expected_headers = [
+        "Horas de pantalla",
+        "Redes sociales",
+        "Trabajo remoto",
+        "Fatiga digital",
+        "Nivel de estrés"
+    ]
+
+    # Check if current headers match expected ones
+    if current_headers != expected_headers:
+        worksheet.insert_row(expected_headers, index=1)
+
+    return worksheet.row_values(1)
+
+
+# ------------------------------------------
+# 3. Run Survey and Save Responses to Sheet
 # ------------------------------------------
 def run_survey():
     print("--- Encuesta sobre Salud Digital y Estrés Tecnológico ---\n")
@@ -35,4 +56,6 @@ def run_survey():
 # ------------------------------------------
 # 3. Execute
 # ------------------------------------------
+worksheet = SHEET.worksheet("responses")
+ensure_headers(worksheet)
 run_survey()
