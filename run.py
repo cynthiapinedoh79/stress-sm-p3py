@@ -27,9 +27,11 @@ def ensure_headers(worksheet):
     current_headers = worksheet.row_values(1)
 
     headers = [
-        "Age", "Screen Time", "Social Networks", "Remote Work", "Digital Fatigue", "Stress Level",
-        "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Personal Recommendation", "Group Recommendation"
-    ]
+    "Age", "Screen Time", "Social Networks", "Remote Work", "Digital Fatigue", "Stress Level",
+    "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Total Network Time",
+    "Personal Recommendation", "Group Recommendation"
+]
+
 
     # Check if current headers match expected ones
     if current_headers != headers:
@@ -73,12 +75,12 @@ def group_recommendation(stress, fatigue, screen_time):
 def network_usage(network_count):
     """
     Collect detailed usage hours for specific social networks if network_count > 0.
-    Returns a list of hours [Facebook, Instagram, TikTok, Games] or [0, 0, 0, 0]
+    Returns a tuple: (list of hours [Facebook, Instagram, TikTok, Games], total hours)
     """
     all_networks = ["Facebook", "Instagram", "TikTok", "Games"]
 
     if network_count == 0:
-        return [0, 0, 0, 0]
+        return [0, 0, 0, 0], 0
 
     usage_hours = []
     for network in all_networks:
@@ -94,8 +96,9 @@ def network_usage(network_count):
             except ValueError as e:
                 print(" Please enter a valid number for hours.")
                 print(f"(Details: {e})")
-    return usage_hours
 
+    total_hours = sum(usage_hours)
+    return usage_hours, total_hours
 
 # ---------------------------
 # 5. Categorize age
@@ -201,7 +204,8 @@ def run_survey():
 
     # Collect network usage
     print("\n Tell us about your usage of specific apps...\n")
-    network_hours = network_usage(networks)
+    network_hours, total_network_time = network_usage(networks)
+    print(f"\n Total time on all social networks: {total_network_time} hours/day \n")
 
 
     # Generate recommendation
@@ -211,8 +215,10 @@ def run_survey():
     print(f"\n Personal Recommendation: {p_recommendation} \n")
     print(f"\n Group Recommendation: {g_recommendation} \n")
 
+
     # Combine all data
-    row_data = [age, screen_time, networks, remote, fatigue, stress] + network_hours + [p_recommendation, g_recommendation]
+    row_data = [age, screen_time, networks, remote, fatigue, stress] + network_hours + [total_network_time, p_recommendation, g_recommendation]
+
 
     # Append to worksheet
     worksheet = SHEET.worksheet("responses")
