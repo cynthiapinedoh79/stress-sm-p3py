@@ -1,7 +1,7 @@
 import gspread
-from oauth2client.service_account import Credentials
+from google.oauth2.service_account import Credentials
 
-def get_google_sheet(sheet_name, worksheet_name):
+def get_google_sheet(worksheet_name):
     SCOPE = ["https://spreadsheets.google.com/feeds", 
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -9,11 +9,14 @@ def get_google_sheet(sheet_name, worksheet_name):
     ]
 
     # Load credentials from JSON keyfile
-    CREDS = Credentials.from_service_account_file("creds.json")
-    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    SHEET = GSPREAD_CLIENT.open("love_sandwiches")
+    CREDS = Credentials.from_service_account_file("creds.json", scopes=SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(CREDS)
+    SHEET = GSPREAD_CLIENT.open("stress-sm-p3py")
+
 
     worksheet = SHEET.worksheet(worksheet_name)
-    return worksheet
+    data = worksheet.get_all_values()
+    print(data)
 
+# Example call:
+get_google_sheet("stress")
