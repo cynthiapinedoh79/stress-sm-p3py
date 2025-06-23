@@ -41,7 +41,7 @@ def ensure_headers(worksheet):
     return worksheet.row_values(1)
 
 # --------------------------------------------------------
-# 4. Personal recommendation
+# 3. Personal recommendation
 # --------------------------------------------------------
 """
 Generate a personal recommendation based on hours of screen time.
@@ -56,7 +56,7 @@ def personal_recommendation(stress, fatigue, screen_time):
     
 
 # --------------------------------------------------------
-# 5. Group recommendation
+# 4. Group recommendation
 # --------------------------------------------------------
 """
 Generate a group recommendation based on stress, fatigue, and screen time.
@@ -70,7 +70,7 @@ def group_recommendation(stress, fatigue, screen_time):
         return "Group stress is low. Keep up the healthy tech habits!."
 
 # --------------------------------------------------------
-# 4. Network detailed usage
+# 5. Network detailed usage
 # --------------------------------------------------------
 def network_usage(network_count):
     """
@@ -101,7 +101,7 @@ def network_usage(network_count):
     return usage_hours, total_hours
 
 # ---------------------------
-# 5. Categorize age
+# 6. Categorize age
 # ---------------------------
 def age_group(age):
     """
@@ -126,7 +126,7 @@ def age_group(age):
     
 
 # --------------------------------------------------------
-# 6. Main survey
+# 7. Main survey with validation per question
 # --------------------------------------------------------
 
 def run_survey():
@@ -134,7 +134,7 @@ def run_survey():
     Run the digital stress survey, validate input one-by-one giving feedback if has an error, and save to Google Sheet.
     """
 
-    print("\n--- Digital Stress Survey ---\n")
+    print("--- Digital Stress Survey ---\n")
 
     # Validate age
     while True:
@@ -182,7 +182,7 @@ def run_survey():
         if remote in remote_options:
             break
         else:
-            print(" Please enter: yes, partly, or no. \n")
+            print("Please enter: yes, partly, or no. \n")
 
     # Validate digital fatigue
     fatigue_options = ["no", "sometimes", "yes"]
@@ -191,7 +191,7 @@ def run_survey():
         if fatigue in fatigue_options:
             break
         else:
-            print(" Please enter: no, sometimes, or yes. \n")
+            print("Please enter: no, sometimes, or yes. \n")
 
     # Validate stress level
     stress_options = ["low", "medium", "high"]
@@ -200,20 +200,20 @@ def run_survey():
         if stress in stress_options:
             break
         else:
-            print(" Please enter: low, medium, or high. \n")
+            print("Please enter: low, medium, or high. \n")
 
     # Collect network usage
-    print("\n Tell us about your usage of specific apps...\n")
+    print("Tell us about your usage of specific apps...\n")
     network_hours, total_network_time = network_usage(networks)
-    print(f"\n Total time on all social networks: {total_network_time} hours/day \n")
+    print(f"Total time on all social networks: {total_network_time} hours/day \n")
 
 
     # Generate recommendation
     p_recommendation = personal_recommendation(stress, fatigue, screen_time)
     g_recommendation = group_recommendation(stress, fatigue, screen_time)
 
-    print(f"\n Personal Recommendation: {p_recommendation} \n")
-    print(f"\n Group Recommendation: {g_recommendation} \n")
+    print(f"Personal Recommendation: {p_recommendation} \n")
+    print(f"Group Recommendation: {g_recommendation} \n")
 
 
     # Combine all data
@@ -224,12 +224,45 @@ def run_survey():
     worksheet = SHEET.worksheet("responses")
     worksheet.append_row(row_data)
 
-    print("\n Thank you for completing the survey! \n")
+    print("Thank you for completing the survey! \n")
+
+# ------------------------------------------
+# 8. Analysis responses
+# ------------------------------------------
+"""Analyze and print summary statistics from the responses.
+"""
+
+def analyze_responses(worksheet):
+    records = worksheet.get_all_records()
+    if not records:
+        print("No data to analyze.")
+        return
+
+    total_screen_time = sum(int(record["Screen Time"]) for record in records)
+    total_network_time = sum(int(record["Total Network Time"]) for record in records)
+
+    avg_screen_time = total_screen_time / len(records)
+    avg_network_time = total_network_time / len(records)
+
+    stress_levels = {"low": 0, "medium": 0, "high": 0}
+    for record in records:
+        stress = record["Stress Level"].lower()
+        if stress in stress_levels:
+            stress_levels[stress] += 1
+
+    print(f"Average Screen Time: {avg_screen_time:.2f} hours/day \n")
+    print(f"Average Total Network Time: {avg_network_time:.2f} hours/day \n")
+
+    print("Stress Level Distribution: \n")
+    for level, count in stress_levels.items():
+        percentage = (count / len(records)) * 100
+        print(f"  {level.capitalize()}: {count} ({percentage:.2f}%)")
 
 
 # ------------------------------------------
-# 7. Execute
+# 9. Execute
 # ------------------------------------------
 worksheet = SHEET.worksheet("responses")
 ensure_headers(worksheet)
 run_survey()
+analyze_responses(worksheet)
