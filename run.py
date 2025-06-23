@@ -21,17 +21,14 @@ SHEET = GSPREAD_CLIENT.open("stress-sm-p3py")
 def ensure_headers(worksheet):
     current_headers = worksheet.row_values(1)
 
-    expected_headers = [
-        "Horas de pantalla",
-        "Redes sociales",
-        "Trabajo remoto",
-        "Fatiga digital",
-        "Nivel de estrés"
+    headers = [
+        "Age", "Screen Time", "Social Networks", "Remote Work", "Digital Fatigue", "Stress Level",
+        "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Recommendation"
     ]
 
     # Check if current headers match expected ones
-    if current_headers != expected_headers:
-        worksheet.insert_row(expected_headers, index=1)
+    if current_headers != headers:
+        worksheet.insert_row(headers, index=1)
 
     return worksheet.row_values(1)
 
@@ -40,17 +37,18 @@ def ensure_headers(worksheet):
 # 3. Run Survey and Save Responses to Sheet
 # ------------------------------------------
 def run_survey():
-    print("--- Encuesta sobre Salud Digital y Estrés Tecnológico ---\n")
-    horas_pantalla = input("¿Cuántas horas al día usas pantallas? (1-2 / 3-5 / 6+): \n")
-    redes = input("¿Cuántas redes sociales usas activamente? (0 / 1-2 / 3+): \n")
-    remoto = input("¿Trabajas o estudias desde casa? (sí / parcialmente / no): \n")
-    fatiga = input("¿Sientes fatiga digital? (no / a veces / sí): \n")
-    estres = input("¿Nivel de estrés al final del día? (bajo / medio / alto): \n")
+    print("--- Digital Stress Survey ---\n")
+    age = input("Your age: \n").strip()
+    screen_time = input("Daily screen time? (1-2 / 3-5 / 6+): \n").strip().lower()
+    networks = input("Active social networks? (0 / 1-2 / 3+): \n").strip().lower()
+    remote = input("Work/study from home? (yes / partly / no): \n").strip().lower()
+    fatigue = input("Do you feel digital fatigue? (no / sometimes / yes): \n").strip().lower()
+    stress = input("Stress level at end of day? (low / medium / high): \n").strip().lower()
     print("Thank you for completing the survey!")
 
     # Append to Google Sheet
     worksheet = SHEET.worksheet("responses")
-    worksheet.append_row([horas_pantalla, redes, remoto, fatiga, estres])
+    worksheet.append_row([age, screen_time, networks, remote, fatigue, stress])
     print(f"{worksheet} worksheet updated successfully.")
 
 # ------------------------------------------
