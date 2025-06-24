@@ -59,7 +59,7 @@ def personal_recommendation(stress, fatigue, screen_time):
     elif screen_time <=6 or fatigue == "sometimes":
         return "Moderate usage. Try to reduce screen time and take screen breaks every hour."
     else:
-        return "High usage. Consider reducing screen time and doing physical or outdooor activities"
+        return "High usage. Consider reducing screen time and doing physical or outdooor activities."
     
 
 # --------------------------------------------------------
@@ -74,7 +74,7 @@ def group_recommendation(stress, fatigue, screen_time):
     elif stress == "medium":
         return "Group stress is moderate. Encourage screen breaks and physical social time."
     else:
-        return "Group stress is low. Keep up the healthy tech habits!."
+        return "Group stress is low. Keep up the healthy tech habits!"
 
 # --------------------------------------------------------
 # 5. Network detailed usage
@@ -149,7 +149,7 @@ def run_survey():
         try:
             age = int(age_input)
             if age <= 0:
-                print(" Age must be a positive number. \n")
+                print("Age must be a positive number. \n")
             else:
                 break
         except ValueError as e:
@@ -162,11 +162,11 @@ def run_survey():
         try:
             screen_time = int(screen_input)
             if screen_time < 0:
-                print(" Screen time cannot be negative. \n")
+                print("Screen time cannot be negative. \n")
             else:
                 break
         except ValueError as e:
-            print(" Invalid screen time. Enter a number. \n")
+            print("Invalid screen time. Enter a number. \n")
             print(f"(Details: {e}) \n")
 
     # Validate number of networks
@@ -179,7 +179,7 @@ def run_survey():
             else:
                 break
         except ValueError as e:
-            print(" Please enter a valid number for social networks. \n")
+            print("Please enter a valid number for social networks. \n")
             print(f"(Details: {e}) \n")
 
     # Validate remote work input
@@ -210,17 +210,19 @@ def run_survey():
             print("Please enter: low, medium, or high. \n")
 
     # Collect network usage
-    print("Tell us about your usage of specific apps...\n")
-    network_hours, total_network_time = network_usage(networks)
-    print(f"Total time on all social networks: {total_network_time} hours/day \n")
+    if networks > 0:
+        print("\nTell us about your usage of specific apps...\n")
 
+    network_hours, total_network_time = network_usage(networks)
+    
+    print("\nTHANK YOU FOR COMPLETING THE SURVEY! \n")
 
     # Generate recommendation
     p_recommendation = personal_recommendation(stress, fatigue, screen_time)
     g_recommendation = group_recommendation(stress, fatigue, screen_time)
 
-    print(f"Personal Recommendation: {p_recommendation} \n")
-    print(f"Group Recommendation: {g_recommendation} \n")
+    print(f"Personal Recommendation: \n  {p_recommendation} \n")
+    print(f"Group Recommendation: \n  {g_recommendation} \n")
 
 
     # Combine all data
@@ -231,7 +233,7 @@ def run_survey():
     worksheet = SHEET.worksheet("responses")
     worksheet.append_row(row_data)
 
-    print("Thank you for completing the survey! \n")
+    
 
 # ------------------------------------------
 # 8. Analysis responses
@@ -252,16 +254,36 @@ def analyze_responses(worksheet):
     avg_screen_time = total_screen_time / len(records)
     avg_network_time = total_network_time / len(records)
 
+    # Get latest user's screen time and network time from the last row
+    last_entry = records[-1]
+    user_screen_time = int(last_entry["Screen Time"])
+    user_network_time = int(last_entry["Total Network Time"])
+
+    # Now use these for comparison
+    # Compare personal screen time to the group average
+    if user_screen_time < avg_screen_time:
+        print("Screen Time: Below average. Well done! \n")
+    elif user_screen_time > avg_screen_time:
+        print("Screen Time: Above average. Consider taking regular breaks. \n")
+    else:
+        print("Screen Time: At average. Try small improvements for a healthier balance. \n")
+
+    # Compare personal social network usage time to the group average
+    if user_network_time < avg_network_time:
+        print("Social Network Usage: Less than average. Great job staying focused! \n")
+    elif user_network_time > avg_network_time:
+        print("Social Network Usage: Above than average. Try setting limits. \n")
+    else:
+        print("Social Network Usage: On par with average. Consider cutting back a bit to free up time. \n")
+
+
     stress_levels = {"low": 0, "medium": 0, "high": 0}
     for record in records:
         stress = record["Stress Level"].lower()
         if stress in stress_levels:
             stress_levels[stress] += 1
 
-    print(f"Average Screen Time: {avg_screen_time:.2f} hours/day \n")
-    print(f"Average Total Network Time: {avg_network_time:.2f} hours/day \n")
-
-    print("Stress Level Distribution: \n")
+    print("\nStress Level Distribution: \n")
     for level, count in stress_levels.items():
         percentage = (count / len(records)) * 100
         print(f"  {level.capitalize()}: {count} ({percentage:.2f}%) \n")
@@ -297,11 +319,11 @@ else:
     personal_vals = personal_data.values
     group_vals = group_avg.values
 
-    fig, ax = plt.subplots(figsize=(14, 7))
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     # Bar positions
     x = range(len(labels))
-    bar_width = 0.35
+    bar_width = 0.25
 
     # Bars
     ax.bar(x, personal_vals, width=bar_width, label="Personal", edgecolor='black')

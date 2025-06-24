@@ -10,3 +10,5 @@ pyasn1_modules==0.4.2
 pyparsing==3.2.3
 requests-oauthlib==2.0.0
 rsa==4.9.1
+matplotlib
+pandas
