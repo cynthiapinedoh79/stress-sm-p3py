@@ -1,6 +1,14 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
+import matplotlib
+import matplotlib.pyplot as plt
+
+import pandas as pd
+
+import os
+import platform
+
 # ------------------------------------------
 # 1. Connect to Google Sheets
 # ------------------------------------------
@@ -31,7 +39,6 @@ def ensure_headers(worksheet):
     "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Total Network Time",
     "Personal Recommendation", "Group Recommendation"
 ]
-
 
     # Check if current headers match expected ones
     if current_headers != headers:
@@ -94,8 +101,8 @@ def network_usage(network_count):
                     usage_hours.append(hours)
                     break
             except ValueError as e:
-                print(" Please enter a valid number for hours.")
-                print(f"(Details: {e})")
+                print(" Please enter a valid number for hours. \n")
+                print(f"(Details: {e}) \n")
 
     total_hours = sum(usage_hours)
     return usage_hours, total_hours
@@ -121,7 +128,7 @@ def age_group(age):
         else:
             return "51+"
     except ValueError as e:
-        print(f"Invalid age: {e}, please enter a number. \n")
+        print(f"Invalid age: {e}, Enter a number. \n")
         return False
     
 
@@ -229,13 +236,14 @@ def run_survey():
 # ------------------------------------------
 # 8. Analysis responses
 # ------------------------------------------
-"""Analyze and print summary statistics from the responses.
+"""
+Analyze and print summary statistics from the responses.
 """
 
 def analyze_responses(worksheet):
     records = worksheet.get_all_records()
     if not records:
-        print("No data to analyze.")
+        print("No data to analyze. \n")
         return
 
     total_screen_time = sum(int(record["Screen Time"]) for record in records)
@@ -256,13 +264,65 @@ def analyze_responses(worksheet):
     print("Stress Level Distribution: \n")
     for level, count in stress_levels.items():
         percentage = (count / len(records)) * 100
-        print(f"  {level.capitalize()}: {count} ({percentage:.2f}%)")
+        print(f"  {level.capitalize()}: {count} ({percentage:.2f}%) \n")
 
 
 # ------------------------------------------
-# 9. Execute
+# 9. Execute (Run)
 # ------------------------------------------
 worksheet = SHEET.worksheet("responses")
 ensure_headers(worksheet)
 run_survey()
 analyze_responses(worksheet)
+
+# ------------------------------------------
+# 10. Load data into DataFrame
+# ------------------------------------------
+data = worksheet.get_all_records()
+df = pd.DataFrame(data)
+
+if df.empty:
+    print("No data available to plot. \n")
+else:
+    numeric_columns = [
+        "Screen Time", "Facebook Hrs", "Instagram Hrs", "TikTok Hrs", "Games Hrs", "Total Network Time"
+    ]
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    group_avg = df[numeric_columns].mean()
+    personal_data = df.iloc[-1][numeric_columns]
+
+    labels = numeric_columns
+    personal_vals = personal_data.values
+    group_vals = group_avg.values
+
+    fig, ax = plt.subplots(figsize=(14, 7))
+
+    # Bar positions
+    x = range(len(labels))
+    bar_width = 0.35
+
+    # Bars
+    ax.bar(x, personal_vals, width=bar_width, label="Personal", edgecolor='black')
+    ax.bar([i + bar_width for i in x], group_vals, width=bar_width, label="Group Average", edgecolor='black')
+
+    # Titles and labels
+    ax.set_title("PERSONAL RESULTS VS GROUP AVERAGES", fontsize=16, fontweight='bold', pad=20)
+    ax.set_xlabel("Metrics", fontsize=14)
+    ax.set_ylabel("Hours", fontsize=14)
+    ax.set_xticks([i + bar_width / 2 for i in x])
+    ax.set_xticklabels(labels, rotation=20, ha='right', fontsize=12)
+    
+    # Grid lines
+    ax.yaxis.grid(True, linestyle='--', alpha=0.5)
+
+    # Legend
+    ax.legend(loc='upper right', fontsize=12)
+
+    # Tight layout
+    plt.tight_layout()
+
+    # Save the chart
+    plt.savefig("chart.png")
+    print("Chart saved as 'chart.png'. \n")
