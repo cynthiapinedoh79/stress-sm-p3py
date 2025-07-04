@@ -6,6 +6,22 @@ import pandas as pd
 import os
 import platform
 
+# ------------------------------------------
+# Welcome Message
+# ------------------------------------------
+print("\n" + "=" * 60)
+print("DIGITAL STRESS SURVEY & ANALYSIS TOOL")
+print("=" * 60)
+print("""
+Welcome! This interactive program will guide you through a short survey 
+about your digital habits, screen time, and stress levels.
+
+What you'll do:
+- Answer a few simple questions about your tech usage and stress.
+- Get a **personalized recommendation** to improve your digital well-being.
+      
+""")
+
 
 # ------------------------------------------
 # 1. Connect to Google Sheets
@@ -151,7 +167,7 @@ def run_survey():
     Run the digital stress survey, validate input one-by-one giving feedback
     if there's an error, and save to Google Sheet.
     """
-    print("--- Digital Stress Survey ---\n")
+    print("--- Let's get started! ---\n")
 
     while True:
         age_input = input("Your age (e.g., 25): \n").strip()
@@ -352,4 +368,3 @@ else:
 
     plt.tight_layout()
     plt.savefig("chart.png")
-    print("Chart saved as 'chart.png'.")
