@@ -9,33 +9,38 @@
 ![HTML](https://img.shields.io/badge/HTML5-0%25-%23E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-0%25-%231572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-0%25-%23F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-100%25-3776AB?style=flat&logo=python&logoColor=white)
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-0%25-384d54?style=flat)
 
 
 
 
 ## 🔗 Live Demo  
-[👉 Try the live website](https://cynthiapinedoh79.github.io/stress-sm-p3py/)
-[👉 Try it live on Heroku](https://stress-sm-p3py.herokuapp.com/)
+<!-- [👉 Try the live website](https://cynthiapinedoh79.github.io/stress-sm-p3py/) -->
+[👉 Try it live on Heroku](https://stress-sm-p3py-6b1a0e94ecd6.herokuapp.com/)
 
-![Main Screenshots](assets/images/readme/amIR/AIR-Home.png)
+<!-- [Main Screenshots](assets/images/readme/amIR/AIR-Home.png) -->
 
 ---
 
-“stress-sm-p3py is a python code deployed in heroku.”
+Stress-sm-p3py is a python code deployed in heroku.
 
 # 📋 Table of Contents
 - [🧾 Project Overview](#🧾-project-overview)
+<!--
 - [📱 Am I Responsive? - Demo](#📱-am-i-responsive---demo)
+-->
 - [🎯 UX](#🎯-ux)
 - [🧑‍💼 User Stories](#🧑‍💼-user-stories)
 - [🎨 Design Choices](#🎨-design-choices)
+<!--
 - [📐 Five Planes UXD](#📐-five-planes-uxd)
   - [📌 Strategy](#📌-strategy)
   - [📐 Scope](#📐-scope)
   - [🏗️ Structure](#🏗️-structure)
   - [🦴 Skeleton](#🦴-skeleton)
   - [🎨 Surface](#🎨-surface)
+-->
 - [🛠️ Technologies & Design Choices](#🛠️-technologies--design-choices)
 - [✨ Features](#✨-features)
   - [🚀 Existing Features](#🚀-existing-features)
@@ -77,18 +82,31 @@ All pages were designed with **Responsive Design** to provide a consistent exper
 
 ## 🎯 UX
 ### Target Audience:
-Individuals and businesses seeking clarity, tools, and support in managing their finances.
+1. Professionals & remote workers – people experiencing screen fatigue or tech overload.
+2. Students and digital natives – who use social media and games heavily.
+3. Mental health coaches or digital wellness advocates – interested in simple tools for tracking digital habits.
 
 ### Core UX Goals:
-
+<!--
 1. Build trust and credibility through clean design and intuitive structure
 2. Offer quick, interactive content that’s informative yet fun
 3. Provide actionable takeaways (e.g., IRS form, consultation link)
 4. Ensure accessibility and responsive design for all devices
 5. Create opportunities for return visits and deeper engagement
+-->
+1. Build trust and clarity through a guided, conversational CLI experience
+Use clear prompts, validation feedback, and a welcoming tone to help users feel comfortable sharing personal info.
+2. Deliver fast, interactive feedback based on user input
+Instantly return personalized and group-based recommendations to reinforce user engagement and learning.
+3. Make results actionable and motivating
+Encourage digital wellness with tailored advice (e.g., “Try screen breaks,” “Do offline hobbies”) that users can immediately apply.
+4. Design for inclusivity and accessibility in text-based environments
+Keep questions simple, jargon-free, and keyboard-navigable for all reading levels and users, including non-native English speakers.
+5. Create potential for future growth (e.g., web app, gamification, dashboards)
+Lay the groundwork for expanding into more dynamic formats or professional use (e.g., coaches, teachers).
 
 ### Main Site Goals:
-
+<!--
 - Promote core services through engaging features
 - Attract potential clients through playful, educational content
 - Help users assess their bookkeeping needs via a quick quiz
@@ -96,48 +114,109 @@ Individuals and businesses seeking clarity, tools, and support in managing their
 - Offer a ready-to-fill IRS Form 1040 PDF as part of the service suite
 - (Coming Soon) Introduce a Tax Comparison Tool to highlight potential savings between LLC and S-Corp business structures
 - (Coming Soon) Launch a Match Game that delivers quick, actionable tips for smarter financial decisions—covering bookkeeping, taxes, and business planning in a fun, easy-to-understand format
+-->
+
+- Promote digital wellness by helping users understand the impact of screen time, social media, and tech fatigue on their stress levels
+- Offer instant, personalized and group recommendations based on individual habits and emotional feedback
+- Encourage self-reflection through a short, engaging survey with zero judgment and simple language
+- Present group-level comparisons to help users see how their habits align with or differ from peers
+- Securely store all data in Google Sheets, enabling future analysis, usage tracking, or reporting
+- (Coming Soon) Build a simple web-based version for broader accessibility and visual enhancements
+- (Coming Soon) Add a “Stress Tracker” dashboard that visualizes personal trends over time and recommends habit adjustments
 
 ---
 
 
 ## 🧑‍💼 User Stories
 - My Goal as Developer:
+  As the sole developer of this Python-based app, my mission is to create a smooth, insightful, and interactive experience that helps users better understand how digital habits affect their stress levels. The tool should feel helpful, safe, and informative — encouraging users to reflect on their digital well-being and take actionable steps to improve it.
+<!--
 As the sole developer of this website, my mission is to provide you with an enjoyable and user-friendly experience while delivering clear, concise, and accurate information about our services — sparking your interest in what we offer.
+-->
 
 - User Experience Objectives:
-From the user’s perspective, I’ve built this site with the following priorities in mind:
+From the user's perspective, this app is designed with the following key goals:
+  - I want to complete the survey quickly and clearly without confusion.
+  - I need the instructions and questions to be easy to understand and answer.
+  - I appreciate seeing my results visually and getting meaningful feedback right away.
+  - I want to feel that my answers are confidential and respected.
+  - I should be able to revisit and see my progress (optional for future enhancement).
 
+<!-->
   - I want to navigate this website quickly and easily.
   - I should be able to use a mouse, keyboard, or touchscreen effortlessly.
   - I value high-quality, well-organized information that I can consume in just a few minutes.
   - As a user, I need a simple and clear way to get in touch with you.
+-->
 
   ### First-Time Visitor Goals
 
-  - As a First Visitor Goals:
+  - As a first-time user:
+      1. I want to understand what this survey is about and how it will help me.
+      2. I’d like to complete the survey in under 5–10 minutes.
+      3. I want to receive personalized feedback or recommendations based on my answers.
+      4. I want reassurance that my data is treated respectfully and securely.
+
+<!--
       1. To quickly understand the main purpose of the site and discover what your company offers.
       2. To navigate the site effortlessly and find content that captures my interest.
       3. To be visually engaged by an attractive and inviting website that encourages me to explore further.
       4. To easily locate your contact information — ideally supported by testimonials or customer reviews to build trust.
+-->
 
   ### Returning Visitor Goals
+ 
+  - As a returning user:
+      1. I want to take the survey again and compare results over time (if available).
+      2. I’d like to see insights based on other users’ averages vs. mine.
+      3. I may want to download or receive a summary of my responses and tips.
 
-  - As a Returning Visitor, 
+  <!--
        1. To find more detailed information about the services provided, including working hours.
        2. To easily discover the best way to contact the organization for any questions or support.
        3. To understand the available methods of communication — whether through Zoom, Skype, phone, or in-person meetings.
+  -->
 
   ### Frequent User Goals
-  - As a Frequent User,
+
+  - As a frequent user:
+      1. I want to track my digital stress patterns and improvements.
+      2. I want visual summaries (e.g., bar charts) comparing my screen time, app usage, and stress over time.
+      3. I want to explore wellness tips, exercises, or links to mindfulness apps for support.
+
+  <!--
        1. To conveniently access and fill out IRS Form 1040 directly through the site.
        2. To view brief and clear comparisons — such as LLC vs. S-Corp — to help make informed decisions.
+  -->
 
 ---
 
-
 ## 🎨 Design Choices
-  ### Description        
+  ### Description
+  This command-line Python app is thoughtfully designed to guide users through a quick and insightful survey that explores the relationship between digital habits and stress levels. While the interface is minimal, the user experience is intentionally structured to feel conversational, supportive, and meaningful. The goal is not only to collect data, but to help users reflect and take action on their digital wellness.
+
+  #### Key Design Principles
+  User-Centered Flow:
+  The questions follow a logical and empathetic order — starting with basic habits and gently leading into emotional well-being — ensuring users never feel overwhelmed or judged.
+
+  Clarity & Simplicity:
+  Instructions and questions are short, jargon-free, and formatted with consistent spacing for readability in the terminal.
+
+  Immediate Feedback:
+  Upon completion, users receive personalized summaries, visual graphs (via Matplotlib), and practical recommendations based on their responses.
+
+  Purposeful Interactivity:
+  Users engage in a step-by-step format that feels natural and smooth, including options to skip non-relevant sections and retry invalid inputs without frustration.
+
+  Visual & Analytical Layer:
+  While text-based in interaction, the app enhances insights with bar graphs that compare the user’s habits to average data from others — making results feel more relevant and motivating.
+
+  Trust & Privacy Focus:
+  The app communicates clearly that responses are stored securely in Google Sheets (with no personal identifiers), reinforcing user confidence in sharing honest answers.
+
+<!--
   This website is designed for visitors and new customers to explore, learn, win rewards, and enjoy an engaging experience while navigating through different pages.
+-->
 
 <!--
   ### Typography
@@ -304,9 +383,7 @@ The game will deliver practical, easy-to-understand content that helps users mak
 -   [JS](https://en.wikipedia.org/wiki/JavaScript) JavaScript.
 -->
 
-
 ---
-
 
 ## 🧰 Frameworks, Libraries & Programs Used
 
@@ -361,16 +438,21 @@ The game will deliver practical, easy-to-understand content that helps users mak
 - Web browsers: Chrome, Firefox, Safari, and Microsoft Edge.
 -  On mobile devices: iPhone 13 Mini, Pixel 7 Pro.
 -  On laptops: MacBook Pro 14”, MacBook Pro 16”.
+<!--
 - DevTools used for responsive checks 
 -  The navigation, pages, and content sections are clear, readable, and easy to navigate.
 - The form validation works correctly: required fields enforce input, email fields only accept valid formats, and the submit buttons function as expected.
+-->
 
 ---
 
 ### ✅ Validator Testing
+<!--
 - HTML: W3C Markup Validator  
 - CSS: W3C CSS Validator  
-- JavaScript: JSHint – no errors  
+- JavaScript: JSHint – no errors 
+-->
+- Python: CI Python Linter [https://pep8ci.herokuapp.com/]
 
 These tools ensured that all pages were free of syntax errors and followed best coding practices.
 
@@ -379,7 +461,7 @@ These tools ensured that all pages were free of syntax errors and followed best 
 ## HTML
   All pages have passed the official W3C Markup Validator with no errors.
 
-### Home Page and Quiz Flow
+### Home Page
 
   #### Home Page: [`index.html`](index.html)
   This is the landing page titled **"Needs Bookkeeping?"** where users begin their experience.
