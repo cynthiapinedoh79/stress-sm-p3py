@@ -75,9 +75,6 @@ All pages were designed with **Responsive Design** to provide a consistent exper
 ![Responsive devices -Home](assets/images/readme/amIR/AIR-Home.png)
 -->
 
-### A live demo to the website 
-[👉 Try the live website](https://cynthiapinedoh79.github.io/stress-sm-p3py/) 
-
 ---
 
 ## 🎯 UX
@@ -153,7 +150,7 @@ From the user's perspective, this app is designed with the following key goals:
 
   - As a first-time user:
       1. I want to understand what this survey is about and how it will help me.
-      2. I’d like to complete the survey in under 5–10 minutes.
+      2. I would like to complete the survey in under 5–10 minutes.
       3. I want to receive personalized feedback or recommendations based on my answers.
       4. I want reassurance that my data is treated respectfully and securely.
 
@@ -168,7 +165,7 @@ From the user's perspective, this app is designed with the following key goals:
  
   - As a returning user:
       1. I want to take the survey again and compare results over time (if available).
-      2. I’d like to see insights based on other users’ averages vs. mine.
+      2. I would like to see insights based on other users’ averages vs. mine.
       3. I may want to receive a summary of my responses and tips.
 
   <!--
@@ -374,28 +371,54 @@ _Main color palette_
 
 ### 🚀 Existing Features
 
-- **Digital Stress Survey**  
+  ### Digital Stress Survey
   A command-line survey that asks users about screen time, social media use, emotional well-being, and lifestyle habits to evaluate digital stress levels.
+  Start with a welcome message and a brief explanation.
+  ![survey welcome](../stress-sm-p3py/assets/readme/w-msg.png)
 
-- **Personalized Feedback**  
+  ### Errors validation
+  Errors detected and feedback to user to answer the correct data.
+
+   Age error validation
+   ![survey err1](../stress-sm-p3py/assets/readme/err1.png)
+
+   Screen time error validation
+   ![survey err2](../stress-sm-p3py/assets/readme/err2.png)
+
+   Social Networks error validation
+   ![survey err3](../stress-sm-p3py/assets/readme/err3.png)
+
+   Work/Study from home? validation error
+   ![survey err4](../stress-sm-p3py/assets/readme/err4.png)
+
+   Digital fatigue error validation
+   ![survey err5](../stress-sm-p3py/assets/readme/err5.png)
+
+   Stress level error validation
+   ![survey err6](../stress-sm-p3py/assets/readme/err6.png)
+
+  ### Personalized Feedback
   Based on user answers, the program generates tailored insights and practical recommendations to help reduce digital fatigue and improve wellness.
+  ![survey feedback](../stress-sm-p3py/assets/readme/thank-msg.png)
 
-- **Visual Charts**  
+  ### Visual Charts
   Using Matplotlib, the app generates bar charts that help users understand their digital behavior and stress impact in a visual, easy-to-read format.
+  ![survey chat.png](../stress-sm-p3py/chart.png)
 
-- **Data Logging via Google Sheets**  
+  ### Data Logging via Google Sheets
   Every survey submission is stored securely in a connected Google Sheet using the `gspread` library, allowing for long-term tracking and analysis.
+  ![survey google sheet](../stress-sm-p3py/assets/readme/gs.png)
 
-- **Automatic Score Calculation**  
+  ### Automatic Score Calculation  
   The app calculates a digital stress score using weighted inputs across several areas, offering objective, data-driven feedback.
 
-- **Deployed on Heroku**  
+  ### Deployed on Heroku 
   The application is hosted online using Heroku, making it accessible from any device with internet access and a terminal interface.
 
-- **Clear User Prompts**  
+  ### Clear User Prompts
   Friendly, easy-to-follow instructions guide users through the survey, even if they are not tech-savvy.
 
-- **Repeatable Use**  
+  ### Repeatable Use
   Users can retake the survey multiple times, and new results will be stored alongside previous entries for ongoing self-assessment.
 
 ---
@@ -577,9 +600,10 @@ The game will deliver practical, easy-to-understand content that helps users mak
 - JavaScript: JSHint – no errors 
 -->
 
-- Python: CI Python Linter [https://pep8ci.herokuapp.com/]
+  ### Python: CI Python Linter [https://pep8ci.herokuapp.com/]
 
-These tools ensured that all pages were free of syntax errors and followed best coding practices.
+  These tools ensured that all pages were free of syntax errors and followed best coding practices.
+  ![run.py](../stress-sm-p3py/pep8.png)
 
 ---
 <!--

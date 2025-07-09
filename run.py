@@ -13,13 +13,12 @@ print("\n" + "=" * 60)
 print("DIGITAL STRESS SURVEY & ANALYSIS TOOL")
 print("=" * 60)
 print("""
-Welcome! This interactive program will guide you through a short survey 
+Welcome! This interactive program will guide you through a short survey
 about your digital habits, screen time, and stress levels.
 
 What you'll do:
 - Answer a few simple questions about your tech usage and stress.
 - Get a **personalized recommendation** to improve your digital well-being.
-      
 """)
 
 # ------------------------------------------
