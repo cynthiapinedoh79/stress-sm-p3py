@@ -13,13 +13,8 @@
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-0%25-384d54?style=flat)
 
 
-
-
 ## 🔗 Live Demo  
-<!-- [👉 Try the live website](https://cynthiapinedoh79.github.io/stress-sm-p3py/) -->
 [👉 Try it live on Heroku](https://stress-sm-p3py-6b1a0e94ecd6.herokuapp.com/)
-
-<!-- [Main Screenshots](assets/images/readme/amIR/AIR-Home.png) -->
 
 ---
 
@@ -33,14 +28,12 @@ Stress-sm-p3py is a python code deployed in heroku.
 - [🎯 UX](#🎯-ux)
 - [🧑‍💼 User Stories](#🧑‍💼-user-stories)
 - [🎨 Design Choices](#🎨-design-choices)
-<!--
 - [📐 Five Planes UXD](#📐-five-planes-uxd)
   - [📌 Strategy](#📌-strategy)
   - [📐 Scope](#📐-scope)
   - [🏗️ Structure](#🏗️-structure)
   - [🦴 Skeleton](#🦴-skeleton)
   - [🎨 Surface](#🎨-surface)
--->
 - [🛠️ Technologies & Design Choices](#🛠️-technologies--design-choices)
 - [✨ Features](#✨-features)
   - [🚀 Existing Features](#🚀-existing-features)
@@ -48,12 +41,15 @@ Stress-sm-p3py is a python code deployed in heroku.
   - [🧑‍💻 Languages Used](#🧑‍💻-languages-used)
   - [🧰 Frameworks, Libraries & Programs Used](#🧰-frameworks-libraries--programs-used)
 - [🧪 Testing & Validation](#🧪-testing--validation)
+  <!--
   - [✅ Browser & Device Testing](#✅-browser--device-testing)
+  -->
   - [✅ Validator Testing](#✅-validator-testing)
+  <!--
   - [✅ Accessibility Testing](#✅-accessibility-testing)
   - [✅ Console in Google Chrome DevTools-"Inspect" Testing](#✅-console-in-google-chrome-devtools-inspect-testing)
+  -->
   - [🧑‍💻 Testing User Stories – User Experience (UX) Evaluation](#🧑‍💻-testing-user-stories--user-experience-ux-evaluation)
-
   - [🐞 Bugs](#🐞-bugs)
   - [📥 Deployment](#📥-deployment)
   - [🌐 GitHub Pages Deployment](#🌐-github-pages-deployment)
@@ -68,15 +64,6 @@ stress-sm-p3py is a terminal-based survey to measure digital fatigue and stress.
 
 ---
 
-<!--
-## 📱 Am I Responsive? - Demo
-All pages were designed with **Responsive Design** to provide a consistent experience across various screen sizes and devices.
-
-![Responsive devices -Home](assets/images/readme/amIR/AIR-Home.png)
--->
-
----
-
 ## 🎯 UX
 ### Target Audience:
 1. Professionals and remote workers – people experiencing screen fatigue or tech overload.
@@ -84,13 +71,7 @@ All pages were designed with **Responsive Design** to provide a consistent exper
 3. Mental health coaches or digital wellness advocates – interested in simple tools for tracking digital habits.
 
 ### Core UX Goals:
-<!--
-1. Build trust and credibility through clean design and intuitive structure
-2. Offer quick, interactive content that’s informative yet fun
-3. Provide actionable takeaways (e.g., IRS form, consultation link)
-4. Ensure accessibility and responsive design for all devices
-5. Create opportunities for return visits and deeper engagement
--->
+
 1. Build trust and clarity through a guided, conversational CLI experience
 Use clear prompts, validation feedback, and a welcoming tone to help users feel comfortable sharing personal info.
 2. Deliver fast, interactive feedback based on user input
@@ -103,15 +84,6 @@ Keep questions simple, jargon-free, and keyboard-navigable for all reading level
 Lay the groundwork for expanding into more dynamic formats or professional use (e.g., coaches, teachers).
 
 ### Main Site Goals:
-<!--
-- Promote core services through engaging features
-- Attract potential clients through playful, educational content
-- Help users assess their bookkeeping needs via a quick quiz
-- Provide added value—discounts, tools, and practical insights—even for casual visitors
-- Offer a ready-to-fill IRS Form 1040 PDF as part of the service suite
-- (Coming Soon) Introduce a Tax Comparison Tool to highlight potential savings between LLC and S-Corp business structures
-- (Coming Soon) Launch a Match Game that delivers quick, actionable tips for smarter financial decisions—covering bookkeeping, taxes, and business planning in a fun, easy-to-understand format
--->
 
 - Promote digital wellness by helping users understand the impact of screen time, social media, and tech fatigue on their stress levels
 - Offer instant, personalized and group recommendations based on individual habits and emotional feedback
@@ -123,13 +95,9 @@ Lay the groundwork for expanding into more dynamic formats or professional use (
 
 ---
 
-
 ## 🧑‍💼 User Stories
 - My Goal as Developer:
   As the sole developer of this Python-based app, my mission is to create a smooth, insightful, and interactive experience that helps users better understand how digital habits affect their stress levels. The tool should feel helpful, safe, and informative — encouraging users to reflect on their digital well-being and take actionable steps to improve it.
-<!--
-As the sole developer of this website, my mission is to provide you with an enjoyable and user-friendly experience while delivering clear, concise, and accurate information about our services — sparking your interest in what we offer.
--->
 
 - User Experience Objectives:
 From the user's perspective, this app is designed with the following key goals:
@@ -139,13 +107,6 @@ From the user's perspective, this app is designed with the following key goals:
   - I want to feel that my answers are confidential and respected.
   - I should be able to revisit and see my progress (optional for future enhancement).
 
-<!-->
-  - I want to navigate this website quickly and easily.
-  - I should be able to use a mouse, keyboard, or touchscreen effortlessly.
-  - I value high-quality, well-organized information that I can consume in just a few minutes.
-  - As a user, I need a simple and clear way to get in touch with you.
--->
-
   ### First-Time Visitor Goals
 
   - As a first-time user:
@@ -154,13 +115,6 @@ From the user's perspective, this app is designed with the following key goals:
       3. I want to receive personalized feedback or recommendations based on my answers.
       4. I want reassurance that my data is treated respectfully and securely.
 
-<!--
-      1. To quickly understand the main purpose of the site and discover what your company offers.
-      2. To navigate the site effortlessly and find content that captures my interest.
-      3. To be visually engaged by an attractive and inviting website that encourages me to explore further.
-      4. To easily locate your contact information — ideally supported by testimonials or customer reviews to build trust.
--->
-
   ### Returning Visitor Goals
  
   - As a returning user:
@@ -168,23 +122,12 @@ From the user's perspective, this app is designed with the following key goals:
       2. I would like to see insights based on other users’ averages vs. mine.
       3. I may want to receive a summary of my responses and tips.
 
-  <!--
-       1. To find more detailed information about the services provided, including working hours.
-       2. To easily discover the best way to contact the organization for any questions or support.
-       3. To understand the available methods of communication — whether through Zoom, Skype, phone, or in-person meetings.
-  -->
-
   ### Frequent User Goals
 
   - As a frequent user:
       1. I want to track my digital stress patterns and improvements.
       2. I want visual summaries (e.g., bar charts) comparing my screen time, app usage, and stress over time.
       3. I want to explore wellness tips, exercises, or links to mindfulness apps for support.
-
-  <!--
-       1. To conveniently access and fill out IRS Form 1040 directly through the site.
-       2. To view brief and clear comparisons — such as LLC vs. S-Corp — to help make informed decisions.
-  -->
 
 ---
 
@@ -211,56 +154,11 @@ From the user's perspective, this app is designed with the following key goals:
   6. Trust & Privacy Focus:
      The app communicates clearly that responses are stored securely in Google Sheets (with no personal identifiers), reinforcing user confidence in sharing honest answers.
 
-<!--
-  This website is designed for visitors and new customers to explore, learn, win rewards, and enjoy an engaging experience while navigating through different pages.
--->
-
-<!--
-  ### Typography
-  Inter, Roboto family font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. Roboto is a clean font used frequently in programming, so it is both attractive and appropriate.
-
-### Color Palette 
-  - **Fonts:** Roboto, Inter – clean and modern  
-  - **Colors:**  
-    - Purple: trust and creativity  
-    - Red/Orange: urgency and emphasis  
-    - Muted tones: professionalism  
-  - [Contrast checked with WebAIM](https://webaim.org/resources/contrastchecker/)
-
-  ### Colour Psychology
-  ![Colour Psicology](assets/images/readme/PsColor.png)
-  ![Contrast checked with WebAIM](assets/images/readme/PsColor1.png)
-
-  ### Imagery  
-  Clear and attractive images support the theme and maintain strong contrast with text for optimal readability.
-- Financial and office-themed backgrounds  
-- High contrast text overlays for readability
-
----
-
-
-  ### 1. Home: index.html
-        
-  - Background: 
-  A blurred photo of financial charts and a blue pen (soft blue, red, beige tones)
-
-  - Text: Dark purple for "Needs Bookkeeping?"
-  - Buttons: Quick Quiz, Check this! and Play & Save!
-    - Background Color: Purple.
-    - Hover: Dark Red.
-  - Color Mood: Professional, calm, and trustworthy (purple conveys reliability and creativity).
-
--->
-
 
 ## 📐 Five planes UXD
 
 ### 📌 Strategy
 The goal of this project is to help users evaluate their digital stress levels and receive personalized recommendations. The app is built with clarity, ease of use, and meaningful feedback at its core—making it both functional and insightful.
-
-<!--
-![Strategy](assets/images/readme/fivePlanes/strategy.png)
--->
 
 ### 📐 Scope
 The application targets two key audiences:
@@ -279,15 +177,6 @@ Key features include:
 - Optional comparison with previous scores
 - View summaries via Google Sheets integration
 
-<!--
-The site is designed for two main user groups:
-1.	Visitors, who can enjoy interactive games, helpful tips, new information, and practical advice.
-2.	Potential new customers, who can explore special offers like a bookkeeping bonus award, contact us easily, or quickly access the Form 1040 submission link.
-
-![Scope pg1](assets/images/readme/fivePlanes/scope1.png)
-
-![Scope pg2](assets/images/readme/fivePlanes/scope2.png)
--->
 
 ### 🏗️ Structure
 The structure of the application was planned around a smooth, user-friendly experience via the terminal (CLI), with potential to scale into a web app.
@@ -301,18 +190,6 @@ Core Functional Areas:
 5. Data Logging – Responses stored in Google Sheets
 6. Graph Output – Visual insight into digital stress using Matplotlib
 
-<!--
-The website is designed with HTML5, CSS3 and JS.
-
-**Website Pages:**
-1. **_Needs Bookkepping?:_** Main page with three buttons (Quiz, Check This! and Play & Save!)
-2. **_Quiz:_** A brief quiz with a few questions that are scored to assess user needs.
-3. **_Feedback:_** A feedback message is shown if your answers indicate that you may need our help or services. It includes a link to fill out Form 1040 and a direct link to contact us through our website.
-4. **_CheckThis:_** Displays Bookkeeping Fact Cards with useful information.
-6. **_Prize:_** Try Your Luck! Win a special prize or bookkeeping bonus—just reach out to claim your reward!
-
-![Structure](assets/images/readme/fivePlanes/structure.png)
--->
 
 ### 🦴 Skeleton
 The system logic follows a clear, linear flow, with decision-making trees and structured question routing based on user inputs. Error handling ensures data integrity, and repeated use is encouraged by storing timestamps and results for future comparisons.
@@ -325,25 +202,9 @@ Planned Enhancements:
 #### Flowchart
 ![flowchart](assets/readme/flowchart.png)
 
-<!--
-The website is designed to be clear and simple. And the site has a simple tree structure with hierarchical flows from top to bottom.
--->
-
-<!--
-**Wireframe**
-The wireframe is designed using Balsamiq software 
-[Balsamic](https://balsamiq.cloud/ss26tqg/p4441iq/rD01A)
-
-#### Home
-![Home](assets/images/readme/Bals/Bals-Home.png)
--->
-
 ### 🎨 Surface
 The CLI interface is designed for simplicity and clarity using structured prompts, progress indicators, and color-coded feedback (where supported). If expanded into a GUI, a soft palette of calming blues and greens would be used to reflect wellness, balance, and trust.
 
-<!--
-To create a pleasing and understandable view, I opt for natural colors such as earth, green, and a range of tones that complement and contrast each other.
--->
 ---
 
 ## 🛠️ Technologies & Design Choices
@@ -352,23 +213,7 @@ To create a pleasing and understandable view, I opt for natural colors such as e
 3. **Matplotlib & Pandas** – Libraries used to analyze the collected data and generate visualizations such as bar charts, helping users interpret their digital stress results.
 4. **Heroku** – Cloud platform used for project deployment, providing users access to the application in a live terminal environment.
 
-<!--
-1. HTML - Used to build the basic structure of the website.
-2. CSS - Styles the front-end to create a visually appealing design and enhance user experience.
-3. Balsamiq - Used to design wireframes and plan the layout of the site before development.
-4. JS -  Adds interactivity to the website, making the experience more dynamic and engaging for users.
-
-*Webaim
-[Tested contrast](https://webaim.org/resources/contrastchecker/)
-*Coolors
-[Tested color](https://coolors.co/contrast-checker/33008a-f8f8ff)
-
-_Main color palette_
-![Main color Palette](assets/images/readme/PalletColors.png)
--->
-
 ---
-
 
 ## ✨ Features
 
@@ -440,51 +285,6 @@ _Main color palette_
 
 ---
 
-
-<!--
-### HTML Files
-  ### 1. Home Page: index.html
-
-  Headline Prompt:
-
-  - HOME: "Needs Bookkeeping?" – A clear, central question targeting the user’s intent.
-
-  - Background Image: A professional, finance-related image (charts and a hand with a pen) that supports the bookkeeping theme.
-
-  - Call-to-Action (CTA) Buttons:
-
-    - Quick Quiz – Likely leads to an interactive assessment to evaluate bookkeeping needs.
-
-    - Check This! – Possibly redirects to a page with useful bookkeeping facts or tips.
-
-    - Play & Save! – An engaging gamified option to win discounts or special offers.
-
-  - Visual Styling: High contrast between button text (white) and button background (dark purple).
-
-  - Very dark green header text helps capture attention.
-
-  - Central alignment of all content for focus and simplicity.
-
-  - Transparent background or slight blur behind text for better readability on the image.
-    
-  ![quickQuiz_page](assets/images/readme/Webpgs/home.png)
--->
-
----
-
-<!--
-### CCS Files
-Currently, all styles are consolidated in a single CSS file (quiz.css) for simplicity.
-1. quiz.css – Contains all custom styling for the website, including layout, typography, color schemes, button designs, responsive behavior, and section-specific formatting across all pages.
-
----
-
-### JS Files.
-1. index.js – Manages all logic related to the homepage, including navigation and event handling for the three main buttons: Quiz, Check This!, and Play & Save!.
-
--->
----
-
 ### 🔮 Features Left to Implement
 
 1. **PDF Summary Export (Coming Soon)**  
@@ -508,31 +308,11 @@ Currently, all styles are consolidated in a single CSS file (quiz.css) for simpl
 7. **Timestamped Submissions (Commig Soon)**  
   Each entry is logged with a date and time, enabling users to compare past and present results to monitor trends and improvement.
 
-<!--
--   Gamified Experience: A fun quiz mode that unlocks new tips based on performance.
--   Progress Badge System: Motivates users to improve and track their digital well-being.
--->
-
-
-
-<!--
-1. **Performance Optimization**  
-   Further streamline scripts and assets to improve load times and Lighthouse scores.
-
-Business structure insights (LLC, S-Corp, Sole Prop, etc.)
-The game will deliver practical, easy-to-understand content that helps users make smarter business and tax decisions, all while keeping the learning experience enjoyable.
--->
 ---
 
 ## 🧑‍💻 Languages Used
 -   [Python 3](https://www.python.org/doc/) – Main programming language used to build the logic and functionality of the digital stress survey.
 -   [Markdown](https://en.wikipedia.org/wiki/Markdown) – Used to create this README file with clear formatting and structure.
-
-<!--
--   [HTML5](https://en.wikipedia.org/wiki/HTML5) Hypertext Markup Language.
--   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) Cascading Style Sheets.
--   [JS](https://en.wikipedia.org/wiki/JavaScript) JavaScript.
--->
 
 ---
 
@@ -543,57 +323,15 @@ The game will deliver practical, easy-to-understand content that helps users mak
 3. [Visual Studio Code:](https://code.visualstudio.com/)
     - Visual Studio Code for code editor with AI.
     - GitHub is used to store the projects code after being pushed from Git.
-4. [CI Python Linter:](https://pep8ci.herokuapp.com/)
+4. [Heroku:](https://id.heroku.com/login)
+5. [CI Python Linter:](https://pep8ci.herokuapp.com/)
     - Python Validator (pep8ci)
-5. [Youtube](https://www.youtube.com/)
+6. [Youtube](https://www.youtube.com/)
     - YouTube
-6. [W3 Schools]( https://www.w3schools.com/)
+7. [W3 Schools]( https://www.w3schools.com/)
     - W3 Schools
 
 
-<!--
-1. [Bootstrap 5.3.3:](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-    - Bootstrap was used to assist with the responsiveness and styling of the website. This framework helps designing websites. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc. It also gives you support for JavaScript plugins. 
-2. [Hover.css:](https://ianlunn.github.io/Hover/)
-    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-3. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
-4. [Font Awesome:](https://fontawesome.com/)
-    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes. Designers love the use of icons as fonts because of the flexibility of styling available with high-quality iconography on every device.
-5. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript. JQuery for DOM manipulation.
-6. [Git](https://git-scm.com/)
-    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-7. [GitHub:](https://github.com/)
-    - GitHub is used to store the projects code after being pushed from Git.
-8. [Visual Studio Code:](https://code.visualstudio.com/)
-    - Visual Studio Code for code editor with AI.
-9. [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
-    - Photoshop was used for editing photos for the website.
-10. [Squoosh:]( https://squoosh.app/)
-    - Sqoosh App to resize or compress image files, and change file extension for the website.
-11. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](https://balsamiq.cloud/s45whoh/p56wz1i/r2278) during the design process.
-12. [Responsive Screenshots](https://ui.dev/amiresponsive)
-    - To capture responsive screenshots across devices.
-13. [Contrast Checker](https://webaim.org/resources/linkcontrastchecker/?fcolor=CDA37C&bcolor=FFFF00)
-    - Webaim Contrast Checker.
-14. [Coolors](Coolorshttps://coolors.co/)
-    - Coolors App is a pallet generator & pallet visualizer.
-15. Lighthouse by Google-Inspect
-    - Generate a Lighthouse report by Google: Performance, Accesibility, Best Practices, and SEO.
-16. [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-    - W3C Markup Validator
-17. [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-    - W3C CSS Validator
-18. [Youtube](https://www.youtube.com/)
-    - YouTube
-19. [Pexels]( https://www.pexels.com/)
-    - Pexels
-20. [W3 Schools]( https://www.w3schools.com/)
-    - W3 Schools
-
--->
 
 ---
 
@@ -602,20 +340,10 @@ The game will deliver practical, easy-to-understand content that helps users mak
 - Web browsers: Chrome, Firefox, Safari, and Microsoft Edge.
 -  On mobile devices: iPhone 13 Mini, Pixel 7 Pro.
 -  On laptops: MacBook Pro 14”, MacBook Pro 16”.
-<!--
-- DevTools used for responsive checks 
--  The navigation, pages, and content sections are clear, readable, and easy to navigate.
-- The form validation works correctly: required fields enforce input, email fields only accept valid formats, and the submit buttons function as expected.
--->
 
 ---
 
 ### ✅ Validator Testing
-<!--
-- HTML: W3C Markup Validator  
-- CSS: W3C CSS Validator  
-- JavaScript: JSHint – no errors 
--->
 
   ### Python: CI Python Linter [https://pep8ci.herokuapp.com/]
 
@@ -623,36 +351,8 @@ The game will deliver practical, easy-to-understand content that helps users mak
   ![run.py](../stress-sm-p3py/pep8.png)
 
 ---
+
 <!--
-## HTML
-  All pages have passed the official W3C Markup Validator with no errors.
-
-### Home Page
-
-  #### Home Page: [`index.html`](index.html)
-  This is the landing page titled **"Needs Bookkeeping?"** where users begin their experience.
-  ![Home Page](assets/images/readme/W3C-Markup/W3C-index.html%20(quickquiz).png)
-
----
-
-## CSS
-All pages have passed the official W3C CSS Validator with no errors.
-
-  #### Quiz
-  #### Informational Page: [`quiz.css`](quiz.css)
-  ![quiz CSS](assets/images/readme/W3-CSS/W3C-quiz.css.png)
-
----
-
-## JS
-All pages have passed the official JSHint with no errors.
-
-  #### Index
-  #### Informational Page: [`index.js `](index.js)
-  ![Index JS](assets/images/readme/JSHint/JSH-index.js.png)
-
----
-
 ### ✅ Accessibility Testing
 - Lighthouse DevTools by Google
 ### Home Page and Quiz Flow
@@ -665,7 +365,6 @@ All pages have passed the official JSHint with no errors.
 - Console Error Testing using Google Chrome DevTools
 
   Each page was tested via the Console tab in Chrome's Developer Tools to detect and resolve any JavaScript or resource-related issues. All known 404, syntax, or runtime errors were addressed, ensuring a clean console output across the site.
-
 -->
 
 ### 🧑‍💻 Testing User Stories – User Experience (UX) Evaluation
@@ -692,24 +391,7 @@ All pages have passed the official JSHint with no errors.
 
     - A short message before the survey reinforces the privacy policy and encourages honest participation without fear of judgment.
 
-<!--
-1. **Understand the Site's Purpose and Offerings Quickly**
-   - Upon arrival, users are greeted with a clean layout featuring clearly labeled buttons and intuitive navigation.
-   - The site uses visually appealing background images, a vibrant color palette, and strong contrast for optimal readability.
-   - Calls-to-action (CTAs) are prominently placed, encouraging users to begin exploring key services or features.
-
-2. **Navigate Effortlessly and Discover Relevant Content**
-   - The site structure is fluid and user-friendly, allowing seamless transitions between pages.
-   - Each section is purpose-driven, with dynamic content that aligns with the user's needs or interests.
-
-3. **Feel Visually Engaged and Motivated to Explore**
-   - First-time users encounter a visually compelling design that captures attention and invites exploration.
-   - Interactive elements and engaging content foster curiosity and encourage deeper engagement with the site.
-
-4. **Easily Find Contact Information and Trust Signals**
-   - Contact options are clearly presented and accessible across all pages.
-   - Customer testimonials or reviews are integrated to build credibility and foster trust with new visitors.
--->
+---
 
 #### Returning Visitor Goals
 
@@ -744,14 +426,6 @@ As a Frequent User, I want to:
    - Users are presented with actionable wellness tips based on their results.  
    - *(Optional future enhancement)* Integration with external resources such as mindfulness apps, breathing exercises, or digital detox guides may be included for deeper support.
 
-<!--
-1. **Easily Access and Submit IRS Form 1040**
-   - Fill out and submit the IRS Form 1040 through a simple and secure on-site form.
-
-2. **View Helpful Financial Comparisons for Smarter Decisions**
-   - Quickly review side-by-side comparisons such as **LLC vs. S-Corp** structures with graphics.
-   - Use this information to make informed decisions about taxes, bookkeeping needs, or business structure changes.
--->
 
 #### Further Testing
 - The Python-based survey was rigorously tested in **multiple terminal environments** (macOS Terminal, Windows Command Prompt, VS Code terminal) to confirm compatibility and proper console rendering.
@@ -767,12 +441,6 @@ As a Frequent User, I want to:
   - Layout and clarity of the survey output  
   - Enhanced tips based on stress levels and screen time results
 
-<!-->
-- The website was thoroughly tested across major web browsers, including **Google Chrome**, **Safari**, **Microsoft Edge**, and even **Internet Explorer** to ensure cross-browser compatibility.
-- Device testing was conducted on a range of platforms, including **desktop and laptop computers**, as well as mobile devices such as **iPhone 7, iPhone 8, and iPhone X**.
-- Comprehensive internal testing was performed to confirm that **all internal and external links functioned correctly**, and that navigation between pages was smooth and intuitive.
-- Usability testing involved feedback from **friends and family members**, who were invited to explore the site and identify any bugs, broken functionality, or areas of improvement from a user experience (UX) perspective.
--->
 ---
 
 ### 🐞 Bugs
@@ -784,13 +452,6 @@ As a Frequent User, I want to:
 - Verified that no exceptions appear in the terminal or on Heroku deployment logs after full survey completion.
 - Improved wording and grammar in survey prompts and feedback messages for better UX clarity and professionalism.
 
-<!--
-- Significant bugs were identified and resolved across all major development areas, including **HTML5**, **CSS3**, and **JavaScript**.
-- Several spelling and grammar issues were corrected throughout the project to improve clarity and professionalism.
-- Improved navigation by adding functional Back/Home buttons to return to the main page.
-- Resolved JavaScript syntax errors to ensure cleaner and more maintainable code.
-- Verified in Google Chrome Developer Tools that the console is free of errors after inspection for each page.
--->
 ---
 ### Unsolved Bugs / Areas for Improvement
 - **Survey restart flow**: Currently, users must manually restart the script to retake the survey. A built-in "Retake Survey" option would improve usability.
@@ -799,13 +460,8 @@ As a Frequent User, I want to:
 - **No authentication for repeated entries**: Users can take the survey multiple times without any session tracking. Future improvements could include a timestamp or user ID column to track submissions.
 - **Limited mobile support**: Since this is a terminal-based app, mobile users may not be able to interact without a physical keyboard or SSH terminal app.
 - **UI limitations**: Although the console interface works well, a future web-based version with buttons, sliders, and real-time feedback would improve accessibility and visual appeal.
-<!--
-- **CSS cleanup**: Some unused or redundant CSS rules should be removed to reduce file size and improve maintainability.
-- **Code optimization**: Grouping and organizing code by section or page can make it easier to deploy, reduce the likelihood of bugs, and improve performance.
-- **Lighthouse Performance**: The site's performance metrics (as measured by Google's Lighthouse tool) can be improved by further optimizing code, assets, and loading behavior.
--->
----
 
+---
 
 ## 📥 Deployment
 
@@ -921,13 +577,6 @@ Connect your GitHub repository and deploy as normal.
 
 ### Code, Resources & References
 
-<!--
-- [Stack Overflow](https://stackoverflow.com)  
-  Used for troubleshooting and researching common development issues during the project.
-- [Bootstrap 5.3.3 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)  
-  Bootstrap library was used throughout the project to create a responsive layout using the Bootstrap Grid System.
-  -->
-
 - [Google](https://www.google.com)  
   Utilized for general development research, code examples, and technical clarification.
 
@@ -950,31 +599,10 @@ Public)
   4. [World Health Organization – Digital Health and Wellbeing](https://www.who.int/health-topics/digital-health)
   5. [Psychology Today – Screen Time Effects](https://www.psychologytoday.com/us/topics/screen-time)
 
-
-<!--
-* I used as example from the Code Institute's [Fun Coding Facts]
-* I used as example from the Code Institute's [Love Maths]( https://github.com/cynthiapinedoh79/Love-Maths) project.
-
--   Content was written by developer.
-
-- 💡 **Color Psychology Resources** (used for chart color choices and feedback aesthetics):
-  1. [Color Psychology](https://www.colorpsychology.org/)
-  2. [Canva – Color Meanings](https://www.canva.com/colors/color-meanings/)
-  3. [Color Matters](https://www.colormatters.com/)
-  4. [Academia.edu – Psychological Properties of Colour (Angela Wright)](https://www.academia.edu/)
-  5. [Verywell Mind – Color Psychology](https://www.verywellmind.com/color-psychology-2795824)
-
-> These sources helped ensure that the content was both insightful and rooted in well-being principles.
--->
+---
 
 ### Media
-
-<!--
-- [freestocks](https://freestocks.org/)
-- [pixabay](https://pixabay.com/)
 - [unsplash](https://unsplash.com/)
-- [pexels](https://pexels.com/)
--->
 
 ### 🙏 Acknowledgements
 
