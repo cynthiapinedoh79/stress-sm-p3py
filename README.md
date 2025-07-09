@@ -322,6 +322,9 @@ Planned Enhancements:
 - Option to download a PDF summary
 - Provide external links to resources like mindfulness apps or articles
 
+#### Flowchart
+![flowchart](assets/readme/flowchart.png)
+
 <!--
 The website is designed to be clear and simple. And the site has a simple tree structure with hierarchical flows from top to bottom.
 -->
@@ -374,28 +377,42 @@ _Main color palette_
   ### Digital Stress Survey
   A command-line survey that asks users about screen time, social media use, emotional well-being, and lifestyle habits to evaluate digital stress levels.
   Start with a welcome message and a brief explanation.
+
   ![survey welcome](../stress-sm-p3py/assets/readme/w-msg.png)
+  ---
 
   ### Errors validation
   Errors detected and feedback to user to answer the correct data.
 
-   Age error validation
-   ![survey err1](../stress-sm-p3py/assets/readme/err1.png)
+  **Age error validation**
 
-   Screen time error validation
-   ![survey err2](../stress-sm-p3py/assets/readme/err2.png)
+  ![survey err1](../stress-sm-p3py/assets/readme/err1.png)
+   
 
-   Social Networks error validation
-   ![survey err3](../stress-sm-p3py/assets/readme/err3.png)
+  **Screen time error validation**
 
-   Work/Study from home? validation error
-   ![survey err4](../stress-sm-p3py/assets/readme/err4.png)
+  ![survey err2](../stress-sm-p3py/assets/readme/err2.png)
+   
 
-   Digital fatigue error validation
-   ![survey err5](../stress-sm-p3py/assets/readme/err5.png)
+  **Social Networks error validation**
 
-   Stress level error validation
-   ![survey err6](../stress-sm-p3py/assets/readme/err6.png)
+  ![survey err3](../stress-sm-p3py/assets/readme/err3.png)
+   
+
+  **Work/Study from home? validation error**
+
+  ![survey err4](../stress-sm-p3py/assets/readme/err4.png)
+   
+
+  **Digital fatigue error validation**
+
+  ![survey err5](../stress-sm-p3py/assets/readme/err5.png)
+   
+
+  **Stress level error validation**
+
+  ![survey err6](../stress-sm-p3py/assets/readme/err6.png)
+  ---
 
   ### Personalized Feedback
   Based on user answers, the program generates tailored insights and practical recommendations to help reduce digital fatigue and improve wellness.
