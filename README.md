@@ -348,7 +348,7 @@ The CLI interface is designed for simplicity and clarity using structured prompt
   ### Python: CI Python Linter [https://pep8ci.herokuapp.com/]
 
   These tools ensured that all pages were free of syntax errors and followed best coding practices.
-  ![run.py](../stress-sm-p3py/pep8.png)
+  ![run.py](../stress-sm-p3py/assets/readme/pep8.png)
 
 ---
 
